@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Helper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIINfQ8kqwJ2v2r3pWyaQ9jkh3Mxw7A38xA="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h2>Space Helper</h2>
+          </div>
+        </header>
+
+        <details class="map-filterbar filter-menu" aria-label="Filtres de carte">
+          <summary>
+            <span>Filtres</span>
+            <strong id="visibleCount">0</strong>
+            <small>visibles</small>
+          </summary>
+          <div class="filter-menu-body">
+            <label class="filterbar-field search-filter">
+              <span>Recherche</span>
+              <span class="search-control">
+                <input id="searchInput" type="search" placeholder="PA_1500, adresse..." autocomplete="off" />
+                <button id="clearSearchButton" type="button" aria-label="Effacer la recherche">×</button>
+              </span>
+            </label>
+            <label class="filterbar-field city-filter">
+              <span>Ville</span>
+              <select id="citySelect">
+                <option value="">Choisir une ville</option>
+              </select>
+            </label>
+            <div class="filterbar-group">
+              <span>Statut flash</span>
+              <div class="segmented-control inventory-filters">
+                <button class="is-active" data-inventory-filter="all" type="button">Tous</button>
+                <button data-inventory-filter="todo" type="button">À flasher</button>
+                <button data-inventory-filter="flashed" type="button">Flashés</button>
+                <button data-inventory-filter="ignored" type="button">Ignorés</button>
+              </div>
+            </div>
+            <label class="filterbar-field">
+              <span>Arrondissement</span>
+              <select id="arrondissementSelect">
+                <option value="all">Tous</option>
+              </select>
+            </label>
+            <label class="filterbar-field">
+              <span>Points</span>
+              <select id="pointsSelect">
+                <option value="all">Tous</option>
+                <option value="10">10 pts</option>
+                <option value="20">20 pts</option>
+                <option value="30">30 pts</option>
+                <option value="40">40 pts</option>
+                <option value="50">50 pts</option>
+                <option value="100">100 pts</option>
+              </select>
+            </label>
+            <div class="filterbar-group">
+              <span>État</span>
+              <div class="segmented-control work-status-filters">
+                <button class="is-active" data-filter="all" type="button">Tous</button>
+                <button data-filter="ok" type="button">OK</button>
+                <button data-filter="check" type="button">À vérifier</button>
+                <button data-filter="destroyed" type="button">Détruits</button>
+              </div>
+            </div>
+            <div class="filterbar-summary" aria-live="polite">
+              <small><b id="inventoryTodo">0</b> à flasher</small>
+              <small><b id="inventoryFlashed">0</b> flashés</small>
+            </div>
+            <label class="toggle filter-toggle">
+              <input id="showLabels" type="checkbox" />
+              <span>Afficher les codes sur la carte</span>
+            </label>
+            <div class="filterbar-group location-control">
+              <span>Position</span>
+              <button id="locateButton" class="ghost-button" type="button">Ma position</button>
+            </div>
+            <div class="filterbar-group reset-filter-control">
+              <span>Filtres</span>
+              <button id="resetFiltersButton" class="ghost-button" type="button">Réinitialiser</button>
+            </div>
+          </div>
+        </details>
+
+        <section class="map-panel" aria-label="Carte simplifiée">
+          <div class="map-toolbar">
+            <div>
+              <strong id="mapTitle">Toutes les villes</strong>
+              <span id="mapSubtitle">0 invaders visibles</span>
+            </div>
+          </div>
+          <div id="mapCanvas" class="map-canvas"></div>
+        </section>
+
+        <section class="content-grid">
+          <div class="city-list-panel">
+            <div class="panel-header">
+              <h2>Invaders</h2>
+              <select id="sortSelect" aria-label="Trier les invaders">
+                <option value="id">Identifiant</option>
+                <option value="points">Points</option>
+                <option value="status">Statut</option>
+                <option value="address">Adresse</option>
+              </select>
+            </div>
+            <div id="cityList" class="city-list"></div>
+          </div>
+
+          <aside id="detailPanel" class="detail-panel" aria-live="polite"></aside>
+        </section>
+
+        <section class="data-panel" aria-label="Gestion des données">
+          <div class="data-panel-header">
+            <strong>Données</strong>
+            <button id="resetButton" class="ghost-button" type="button">Effacer filtres</button>
+          </div>
+
+          <section class="data-block" aria-label="Statut flash personnel">
+            <div>
+              <strong>Mes flashs</strong>
+              <small>Statuts enregistrés sur cet appareil.</small>
+            </div>
+            <div class="data-actions">
+              <button id="importInventoryButton" class="ghost-button" type="button">Importer flashs</button>
+              <button id="exportInventoryButton" class="primary-button" type="button">Exporter flashs</button>
+            </div>
+            <input id="importInventoryInput" type="file" accept="application/json,.json" hidden />
+          </section>
+
+          <section class="data-block" aria-label="Base locale des invaders">
+            <div>
+              <strong>Base invaders</strong>
+              <small id="databaseInfo">Base intégrée au dossier, importable en JSON.</small>
+            </div>
+            <div class="data-actions">
+              <button id="importBaseButton" class="ghost-button" type="button">Importer base</button>
+              <button id="saveBaseButton" class="primary-button" type="button">Exporter base</button>
+            </div>
+            <input id="importBaseInput" type="file" accept="application/json,.json" hidden />
+          </section>
+        </section>
+      </section>
+    </main>
+    <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite"></div>
+
+    <template id="cityCardTemplate">
+      <article class="city-card">
+        <span class="city-thumb">
+          <img alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+          <span></span>
+        </span>
+        <span class="city-code"></span>
+        <span class="city-main">
+          <strong></strong>
+          <small></small>
+        </span>
+        <span class="city-score"></span>
+        <button class="flash-toggle" data-list-status-toggle type="button">À flasher</button>
+      </article>
+    </template>
+
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script defer src="./data/invaders.js"></script>
+    <script defer src="./src/app.js?v=20260517-9"></script>
+  </body>
+</html>
