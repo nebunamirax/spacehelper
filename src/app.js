@@ -204,6 +204,7 @@ let userLayer;
 let selectedMarker;
 let mapResizeObserver;
 let mapCanvasRenderer;
+let currentMapInvaders = [];
 let inventory = loadInventory();
 
 function statusTotals(city) {
@@ -474,14 +475,18 @@ function initMap() {
     zoomControl: true
   });
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
   }).addTo(map);
 
   markerLayer = L.layerGroup().addTo(map);
   userLayer = L.layerGroup().addTo(map);
   mapCanvasRenderer = L.canvas({ padding: 0.5 });
+  map.on("zoomend", () => {
+    if (!state.cityFilter || !currentMapInvaders.length) return;
+    renderMap(currentMapInvaders, true);
+  });
   window.addEventListener("resize", () => map.invalidateSize());
   mapResizeObserver = new ResizeObserver(() => map.invalidateSize());
   mapResizeObserver.observe(els.mapCanvas);
@@ -572,6 +577,87 @@ function markerIcon(invader) {
     iconAnchor: [14, 14],
     popupAnchor: [0, -12]
   });
+}
+
+function clusterIcon(cluster) {
+  return L.divIcon({
+    className: "cluster-marker-shell",
+    html: `
+      <div class="map-cluster-marker" style="--cluster-ring:${Math.round(5 + Math.min(1, cluster.count / 80) * 8)}px">
+        <strong>${numberFormat.format(cluster.count)}</strong>
+        <span>${numberFormat.format(cluster.points)} pts</span>
+      </div>
+    `,
+    iconSize: [58, 58],
+    iconAnchor: [29, 29],
+    popupAnchor: [0, -28]
+  });
+}
+
+function clusterPopupHtml(cluster) {
+  return `
+    <article class="city-popup">
+      <strong>${numberFormat.format(cluster.count)} invaders</strong>
+      <small>${numberFormat.format(cluster.points)} pts</small>
+      <p>Zoome ou clique pour détailler cette zone.</p>
+    </article>
+  `;
+}
+
+function clusterCellSize() {
+  const zoom = map?.getZoom() ?? 12;
+  if (zoom >= 16) return 0;
+  if (zoom >= 15) return 34;
+  if (zoom >= 14) return 46;
+  if (zoom >= 13) return 62;
+  if (zoom >= 12) return 78;
+  if (zoom >= 11) return 96;
+  return 118;
+}
+
+function clusterInvaders(invaders) {
+  const cellSize = clusterCellSize();
+  if (!cellSize || invaders.length < 80) {
+    return invaders.map((invader) => ({ type: "single", invader }));
+  }
+
+  const clusters = new Map();
+  invaders.forEach((invader) => {
+    const point = map.latLngToLayerPoint([invader.lat, invader.lon]);
+    const key = `${Math.floor(point.x / cellSize)}:${Math.floor(point.y / cellSize)}`;
+    const cluster = clusters.get(key) ?? {
+      type: "cluster",
+      invaders: [],
+      count: 0,
+      points: 0,
+      latTotal: 0,
+      lonTotal: 0
+    };
+    cluster.invaders.push(invader);
+    cluster.count += 1;
+    cluster.points += invader.points;
+    cluster.latTotal += invader.lat;
+    cluster.lonTotal += invader.lon;
+    clusters.set(key, cluster);
+  });
+
+  return [...clusters.values()].flatMap((cluster) => {
+    if (cluster.count === 1) return [{ type: "single", invader: cluster.invaders[0] }];
+    return [{
+      ...cluster,
+      lat: cluster.latTotal / cluster.count,
+      lon: cluster.lonTotal / cluster.count
+    }];
+  });
+}
+
+function zoomToCluster(cluster) {
+  const bounds = L.latLngBounds(cluster.invaders.map((invader) => [invader.lat, invader.lon]));
+  if (bounds.isValid() && bounds.getNorthEast().distanceTo(bounds.getSouthWest()) > 18) {
+    map.fitBounds(bounds, { padding: [64, 64], maxZoom: Math.min(map.getZoom() + 3, 17) });
+    return;
+  }
+  map.setView([cluster.lat, cluster.lon], Math.min(map.getZoom() + 3, 18), { animate: true });
 }
 
 function cityMarkerIcon(city) {
@@ -724,6 +810,7 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     return;
   }
 
+  currentMapInvaders = state.cityFilter ? visibleInvaders : [];
   els.mapCanvas.classList.toggle("hide-labels", !state.showLabels);
   markerLayer.clearLayers();
   userLayer.clearLayers();
@@ -758,7 +845,26 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     return;
   }
 
-  visibleInvaders.forEach((invader) => {
+  clusterInvaders(visibleInvaders).forEach((item) => {
+    if (item.type === "cluster") {
+      const marker = L.marker([item.lat, item.lon], {
+        icon: clusterIcon(item),
+        title: `${item.count} invaders`,
+        zIndexOffset: Math.min(item.count, 500)
+      });
+      marker.bindPopup(clusterPopupHtml(item), {
+        closeButton: true,
+        className: "city-popup-shell",
+        maxWidth: 260,
+        minWidth: 220
+      });
+      marker.on("click", () => zoomToCluster(item));
+      marker.addTo(markerLayer);
+      item.invaders.forEach((invader) => bounds.push([invader.lat, invader.lon]));
+      return;
+    }
+
+    const { invader } = item;
     const isSelected = invader.id === state.selectedCode;
     const marker = L.marker([invader.lat, invader.lon], { icon: markerIcon(invader), title: invader.id });
     marker.bindPopup(popupHtml(invader), {
@@ -792,7 +898,8 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     map.setView([state.userLocation.lat, state.userLocation.lon], Math.max(map.getZoom(), 17), { animate: true });
     requestAnimationFrame(() => map.invalidateSize());
   } else if (selected && !preserveViewport) {
-    map.setView([selected.lat, selected.lon], Math.max(map.getZoom(), 15), { animate: false });
+    if (!selectedMarker) state.openSelectedPopup = true;
+    map.setView([selected.lat, selected.lon], Math.max(map.getZoom(), 17), { animate: false });
     requestAnimationFrame(() => {
       map.invalidateSize();
       selectedMarker?.openPopup();

@@ -593,9 +593,9 @@ summary,
   max-height: 680px;
   overflow: hidden;
   background:
-    linear-gradient(rgba(111, 250, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 250, 255, 0.08) 1px, transparent 1px),
-    #0a1020;
+    linear-gradient(rgba(12, 33, 54, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 33, 54, 0.08) 1px, transparent 1px),
+    #eef3f0;
   background-size: 22px 22px;
 }
 
@@ -616,7 +616,7 @@ summary,
   width: 100%;
   height: 100%;
   font: inherit;
-  background: #11162d;
+  background: #eef3f0;
 }
 
 .leaflet-pane,
@@ -708,7 +708,7 @@ summary,
 }
 
 .leaflet-tile-pane {
-  filter: hue-rotate(178deg) saturate(0.9) brightness(0.48) contrast(1.28);
+  filter: saturate(0.92) brightness(1.08) contrast(1.02);
 }
 
 .leaflet-control-zoom {
@@ -750,7 +750,8 @@ summary,
 
 .invader-marker-shell,
 .user-location-marker-shell,
-.city-marker-shell {
+.city-marker-shell,
+.cluster-marker-shell {
   border: 0;
   background: transparent;
 }
@@ -796,6 +797,76 @@ summary,
   box-shadow:
     inset 0 0 18px rgba(255, 62, 201, 0.16),
     0 0 22px rgba(255, 62, 201, 0.36);
+}
+
+.map-cluster-marker {
+  position: relative;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(111, 250, 255, 0.96), rgba(141, 255, 102, 0.92));
+  color: #071008;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 var(--cluster-ring) rgba(111, 250, 255, 0.18),
+    0 0 28px rgba(8, 16, 24, 0.34);
+  text-align: center;
+  transform: rotate(45deg);
+}
+
+.map-cluster-marker::before,
+.map-cluster-marker::after {
+  position: absolute;
+  content: "";
+  background: #071008;
+}
+
+.map-cluster-marker::before {
+  width: 10px;
+  height: 10px;
+  box-shadow: 20px 0 #071008;
+  transform: translate(-10px, -10px);
+}
+
+.map-cluster-marker::after {
+  width: 36px;
+  height: 6px;
+  transform: translateY(12px);
+}
+
+.map-cluster-marker strong,
+.map-cluster-marker span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform: rotate(-45deg);
+}
+
+.map-cluster-marker strong {
+  margin-top: -6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.map-cluster-marker span {
+  margin-top: -18px;
+  color: #123024;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.map-cluster-marker:hover {
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 0 calc(var(--cluster-ring) + 2px) rgba(255, 228, 95, 0.22),
+    0 0 30px rgba(255, 62, 201, 0.3);
 }
 
 .map-point-marker {
@@ -79907,6 +79978,7 @@ let userLayer;
 let selectedMarker;
 let mapResizeObserver;
 let mapCanvasRenderer;
+let currentMapInvaders = [];
 let inventory = loadInventory();
 
 function statusTotals(city) {
@@ -80177,14 +80249,18 @@ function initMap() {
     zoomControl: true
   });
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
   }).addTo(map);
 
   markerLayer = L.layerGroup().addTo(map);
   userLayer = L.layerGroup().addTo(map);
   mapCanvasRenderer = L.canvas({ padding: 0.5 });
+  map.on("zoomend", () => {
+    if (!state.cityFilter || !currentMapInvaders.length) return;
+    renderMap(currentMapInvaders, true);
+  });
   window.addEventListener("resize", () => map.invalidateSize());
   mapResizeObserver = new ResizeObserver(() => map.invalidateSize());
   mapResizeObserver.observe(els.mapCanvas);
@@ -80275,6 +80351,87 @@ function markerIcon(invader) {
     iconAnchor: [14, 14],
     popupAnchor: [0, -12]
   });
+}
+
+function clusterIcon(cluster) {
+  return L.divIcon({
+    className: "cluster-marker-shell",
+    html: `
+      <div class="map-cluster-marker" style="--cluster-ring:${Math.round(5 + Math.min(1, cluster.count / 80) * 8)}px">
+        <strong>${numberFormat.format(cluster.count)}</strong>
+        <span>${numberFormat.format(cluster.points)} pts</span>
+      </div>
+    `,
+    iconSize: [58, 58],
+    iconAnchor: [29, 29],
+    popupAnchor: [0, -28]
+  });
+}
+
+function clusterPopupHtml(cluster) {
+  return `
+    <article class="city-popup">
+      <strong>${numberFormat.format(cluster.count)} invaders</strong>
+      <small>${numberFormat.format(cluster.points)} pts</small>
+      <p>Zoome ou clique pour détailler cette zone.</p>
+    </article>
+  `;
+}
+
+function clusterCellSize() {
+  const zoom = map?.getZoom() ?? 12;
+  if (zoom >= 16) return 0;
+  if (zoom >= 15) return 34;
+  if (zoom >= 14) return 46;
+  if (zoom >= 13) return 62;
+  if (zoom >= 12) return 78;
+  if (zoom >= 11) return 96;
+  return 118;
+}
+
+function clusterInvaders(invaders) {
+  const cellSize = clusterCellSize();
+  if (!cellSize || invaders.length < 80) {
+    return invaders.map((invader) => ({ type: "single", invader }));
+  }
+
+  const clusters = new Map();
+  invaders.forEach((invader) => {
+    const point = map.latLngToLayerPoint([invader.lat, invader.lon]);
+    const key = `${Math.floor(point.x / cellSize)}:${Math.floor(point.y / cellSize)}`;
+    const cluster = clusters.get(key) ?? {
+      type: "cluster",
+      invaders: [],
+      count: 0,
+      points: 0,
+      latTotal: 0,
+      lonTotal: 0
+    };
+    cluster.invaders.push(invader);
+    cluster.count += 1;
+    cluster.points += invader.points;
+    cluster.latTotal += invader.lat;
+    cluster.lonTotal += invader.lon;
+    clusters.set(key, cluster);
+  });
+
+  return [...clusters.values()].flatMap((cluster) => {
+    if (cluster.count === 1) return [{ type: "single", invader: cluster.invaders[0] }];
+    return [{
+      ...cluster,
+      lat: cluster.latTotal / cluster.count,
+      lon: cluster.lonTotal / cluster.count
+    }];
+  });
+}
+
+function zoomToCluster(cluster) {
+  const bounds = L.latLngBounds(cluster.invaders.map((invader) => [invader.lat, invader.lon]));
+  if (bounds.isValid() && bounds.getNorthEast().distanceTo(bounds.getSouthWest()) > 18) {
+    map.fitBounds(bounds, { padding: [64, 64], maxZoom: Math.min(map.getZoom() + 3, 17) });
+    return;
+  }
+  map.setView([cluster.lat, cluster.lon], Math.min(map.getZoom() + 3, 18), { animate: true });
 }
 
 function cityMarkerIcon(city) {
@@ -80427,6 +80584,7 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     return;
   }
 
+  currentMapInvaders = state.cityFilter ? visibleInvaders : [];
   els.mapCanvas.classList.toggle("hide-labels", !state.showLabels);
   markerLayer.clearLayers();
   userLayer.clearLayers();
@@ -80461,7 +80619,26 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     return;
   }
 
-  visibleInvaders.forEach((invader) => {
+  clusterInvaders(visibleInvaders).forEach((item) => {
+    if (item.type === "cluster") {
+      const marker = L.marker([item.lat, item.lon], {
+        icon: clusterIcon(item),
+        title: `${item.count} invaders`,
+        zIndexOffset: Math.min(item.count, 500)
+      });
+      marker.bindPopup(clusterPopupHtml(item), {
+        closeButton: true,
+        className: "city-popup-shell",
+        maxWidth: 260,
+        minWidth: 220
+      });
+      marker.on("click", () => zoomToCluster(item));
+      marker.addTo(markerLayer);
+      item.invaders.forEach((invader) => bounds.push([invader.lat, invader.lon]));
+      return;
+    }
+
+    const { invader } = item;
     const isSelected = invader.id === state.selectedCode;
     const marker = L.marker([invader.lat, invader.lon], { icon: markerIcon(invader), title: invader.id });
     marker.bindPopup(popupHtml(invader), {
@@ -80495,7 +80672,8 @@ function renderMap(visibleInvaders, preserveViewport = false) {
     map.setView([state.userLocation.lat, state.userLocation.lon], Math.max(map.getZoom(), 17), { animate: true });
     requestAnimationFrame(() => map.invalidateSize());
   } else if (selected && !preserveViewport) {
-    map.setView([selected.lat, selected.lon], Math.max(map.getZoom(), 15), { animate: false });
+    if (!selectedMarker) state.openSelectedPopup = true;
+    map.setView([selected.lat, selected.lon], Math.max(map.getZoom(), 17), { animate: false });
     requestAnimationFrame(() => {
       map.invalidateSize();
       selectedMarker?.openPopup();

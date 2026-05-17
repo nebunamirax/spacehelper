@@ -580,9 +580,9 @@ summary,
   max-height: 680px;
   overflow: hidden;
   background:
-    linear-gradient(rgba(111, 250, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(111, 250, 255, 0.08) 1px, transparent 1px),
-    #0a1020;
+    linear-gradient(rgba(12, 33, 54, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 33, 54, 0.08) 1px, transparent 1px),
+    #eef3f0;
   background-size: 22px 22px;
 }
 
@@ -603,7 +603,7 @@ summary,
   width: 100%;
   height: 100%;
   font: inherit;
-  background: #11162d;
+  background: #eef3f0;
 }
 
 .leaflet-pane,
@@ -695,7 +695,7 @@ summary,
 }
 
 .leaflet-tile-pane {
-  filter: hue-rotate(178deg) saturate(0.9) brightness(0.48) contrast(1.28);
+  filter: saturate(0.92) brightness(1.08) contrast(1.02);
 }
 
 .leaflet-control-zoom {
@@ -737,7 +737,8 @@ summary,
 
 .invader-marker-shell,
 .user-location-marker-shell,
-.city-marker-shell {
+.city-marker-shell,
+.cluster-marker-shell {
   border: 0;
   background: transparent;
 }
@@ -783,6 +784,76 @@ summary,
   box-shadow:
     inset 0 0 18px rgba(255, 62, 201, 0.16),
     0 0 22px rgba(255, 62, 201, 0.36);
+}
+
+.map-cluster-marker {
+  position: relative;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(111, 250, 255, 0.96), rgba(141, 255, 102, 0.92));
+  color: #071008;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 var(--cluster-ring) rgba(111, 250, 255, 0.18),
+    0 0 28px rgba(8, 16, 24, 0.34);
+  text-align: center;
+  transform: rotate(45deg);
+}
+
+.map-cluster-marker::before,
+.map-cluster-marker::after {
+  position: absolute;
+  content: "";
+  background: #071008;
+}
+
+.map-cluster-marker::before {
+  width: 10px;
+  height: 10px;
+  box-shadow: 20px 0 #071008;
+  transform: translate(-10px, -10px);
+}
+
+.map-cluster-marker::after {
+  width: 36px;
+  height: 6px;
+  transform: translateY(12px);
+}
+
+.map-cluster-marker strong,
+.map-cluster-marker span {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform: rotate(-45deg);
+}
+
+.map-cluster-marker strong {
+  margin-top: -6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.map-cluster-marker span {
+  margin-top: -18px;
+  color: #123024;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.map-cluster-marker:hover {
+  border-color: var(--yellow);
+  box-shadow:
+    0 0 0 calc(var(--cluster-ring) + 2px) rgba(255, 228, 95, 0.22),
+    0 0 30px rgba(255, 62, 201, 0.3);
 }
 
 .map-point-marker {
