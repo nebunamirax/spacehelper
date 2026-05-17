@@ -592,11 +592,7 @@ summary,
   height: 62svh;
   max-height: 680px;
   overflow: hidden;
-  background:
-    linear-gradient(rgba(12, 33, 54, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 33, 54, 0.08) 1px, transparent 1px),
-    #eef3f0;
-  background-size: 22px 22px;
+  background: #d8e2d3;
 }
 
 .map-canvas::after {
@@ -616,7 +612,7 @@ summary,
   width: 100%;
   height: 100%;
   font: inherit;
-  background: #eef3f0;
+  background: #d8e2d3;
 }
 
 .leaflet-pane,
@@ -705,10 +701,6 @@ summary,
 .leaflet-popup {
   position: absolute;
   text-align: center;
-}
-
-.leaflet-tile-pane {
-  filter: saturate(0.92) brightness(1.08) contrast(1.02);
 }
 
 .leaflet-control-zoom {
@@ -802,60 +794,43 @@ summary,
 .map-cluster-marker {
   position: relative;
   display: grid;
-  width: 58px;
-  height: 58px;
+  grid-template-rows: 1fr auto;
+  width: 62px;
+  height: 62px;
   place-items: center;
-  border: 3px solid #ffffff;
-  border-radius: 4px;
+  padding: 8px 6px 7px;
+  border: 3px solid var(--yellow);
+  border-radius: 50%;
   background:
-    linear-gradient(135deg, rgba(111, 250, 255, 0.96), rgba(141, 255, 102, 0.92));
-  color: #071008;
+    linear-gradient(180deg, #11162d 0%, #070a18 100%);
+  color: #ffffff;
   cursor: pointer;
   box-shadow:
-    0 0 0 var(--cluster-ring) rgba(111, 250, 255, 0.18),
-    0 0 28px rgba(8, 16, 24, 0.34);
+    0 0 0 var(--cluster-ring) rgba(255, 228, 95, 0.22),
+    0 7px 18px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 2px rgba(111, 250, 255, 0.24);
   text-align: center;
-  transform: rotate(45deg);
-}
-
-.map-cluster-marker::before,
-.map-cluster-marker::after {
-  position: absolute;
-  content: "";
-  background: #071008;
-}
-
-.map-cluster-marker::before {
-  width: 10px;
-  height: 10px;
-  box-shadow: 20px 0 #071008;
-  transform: translate(-10px, -10px);
-}
-
-.map-cluster-marker::after {
-  width: 36px;
-  height: 6px;
-  transform: translateY(12px);
 }
 
 .map-cluster-marker strong,
 .map-cluster-marker span {
-  position: relative;
-  z-index: 1;
   display: block;
-  transform: rotate(-45deg);
+  max-width: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .map-cluster-marker strong {
-  margin-top: -6px;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 20px;
   font-weight: 900;
-  line-height: 1;
+  line-height: 0.95;
+  text-shadow: 0 1px 0 #000;
 }
 
 .map-cluster-marker span {
-  margin-top: -18px;
-  color: #123024;
+  color: var(--cyan);
   font-size: 9px;
   font-weight: 900;
   line-height: 1;
@@ -863,10 +838,11 @@ summary,
 }
 
 .map-cluster-marker:hover {
-  border-color: var(--yellow);
+  border-color: var(--accent);
   box-shadow:
-    0 0 0 calc(var(--cluster-ring) + 2px) rgba(255, 228, 95, 0.22),
-    0 0 30px rgba(255, 62, 201, 0.3);
+    0 0 0 calc(var(--cluster-ring) + 2px) rgba(255, 62, 201, 0.2),
+    0 8px 22px rgba(0, 0, 0, 0.36),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.16);
 }
 
 .map-point-marker {
@@ -80249,9 +80225,9 @@ function initMap() {
     zoomControl: true
   });
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 
   markerLayer = L.layerGroup().addTo(map);
