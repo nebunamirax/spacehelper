@@ -86,6 +86,13 @@ Les statuts flash, les filtres et les bases importées restent stockés localeme
 
 La base portable est dans `data/invaders.js`, générée depuis `data/invaders.json`. Le JSON courant contient une clé `invaders` et couvre plusieurs villes/pays.
 
+Le JSON contient aussi des métadonnées de fraîcheur :
+
+- `generatedAt` : date de génération depuis Invamap.
+- `lastUpdatedAt` : dernière actualisation complète de la base locale.
+- `spotter.scrapedAt` : date de parsing d'Invader Spotter.
+- `unmappedInvaders` : entrées trouvées sur Invader Spotter mais non affichables sur la carte faute de coordonnées.
+
 Format minimal accepté par l'import :
 
 ```json
@@ -120,12 +127,15 @@ Méthode fiable depuis ce dossier :
 
 ```bash
 node scripts/extract-invamap.mjs
+node scripts/enrich-invader-spotter.mjs
 node scripts/build-static-data.mjs
 ```
 
 Le premier script récupère `https://invamap.si/map.php`, extrait les constantes chiffrées présentes dans la page, déchiffre le dataset côté Node avec Web Crypto, normalise tous les invaders géolocalisés, puis écrit `data/invaders.json`.
 
-Le second script génère `data/invaders.js`, utilisé directement par `index.html`.
+Le script `enrich-invader-spotter.mjs` lit `https://www.invader-spotter.art/villes.php`, poste ensuite les requêtes attendues vers `listing.php`, puis enrichit les invaders existants avec les points, dates de pose, dernier état connu et date/source de contrôle quand la correspondance existe. Invader Spotter ne fournit pas les coordonnées : les mosaïques absentes d'Invamap sont donc conservées dans `unmappedInvaders` mais ne sont pas affichées sur la carte.
+
+Le dernier script génère `data/invaders.js`, utilisé directement par `index.html`.
 
 Pour enrichir les arrondissements de Paris après extraction :
 

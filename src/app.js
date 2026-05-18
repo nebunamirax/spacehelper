@@ -149,6 +149,7 @@ const state = {
   sort: "id",
   selectedCode: null,
   databaseSource: "intégrée",
+  databaseUpdatedAt: "",
   baseNeedsSave: false,
   preserveMapViewport: false,
   openSelectedPopup: false,
@@ -314,6 +315,19 @@ function saveBaseOverride(invaders) {
       invaders
     })
   );
+}
+
+function databaseDateLabel(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return new Intl.DateTimeFormat("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(date);
 }
 
 function inventoryStatus(invaderOrId) {
@@ -776,7 +790,9 @@ function renderStats(visibleInvaders) {
   els.inventoryTodo.textContent = numberFormat.format(personal.todo);
   if (els.databaseInfo) {
     const saveHint = state.baseNeedsSave ? "Base importée, export conseillé." : "Import/export JSON disponible.";
-    els.databaseInfo.textContent = `${numberFormat.format(parisInvaders.length)} invaders. Base ${state.databaseSource}. ${saveHint}`;
+    const updatedAt = databaseDateLabel(state.databaseUpdatedAt);
+    const updateHint = updatedAt ? `Actualisée le ${updatedAt}. ` : "";
+    els.databaseInfo.textContent = `${numberFormat.format(parisInvaders.length)} invaders. Base ${state.databaseSource}. ${updateHint}${saveHint}`;
   }
   if (els.locateButton) {
     els.locateButton.disabled = state.locationPending;
@@ -1188,6 +1204,7 @@ function exportBase() {
     type: "space-helper-base",
     exportedAt: new Date().toISOString(),
     source: "Base locale Invamap importée ou générée hors navigateur",
+    lastUpdatedAt: state.databaseUpdatedAt,
     cities,
     invaders: parisInvaders,
     futureInvaderShape,
@@ -1228,7 +1245,8 @@ function normalizeImportedInvader(invader) {
     imageUrl: String(invader.imageUrl ?? ""),
     instagramUrl: String(invader.instagramUrl ?? ""),
     sourceUrl: String(invader.sourceUrl ?? ""),
-    note: String(invader.note ?? "")
+    note: String(invader.note ?? ""),
+    ...(invader.spotter && typeof invader.spotter === "object" ? { spotter: invader.spotter } : {})
   };
 }
 
@@ -1365,6 +1383,7 @@ function applyInvadersData(payload, source = "intégrée") {
   if (!Array.isArray(imported) || !imported.length) return;
   parisInvaders = imported.map(normalizeImportedInvader);
   state.databaseSource = source;
+  state.databaseUpdatedAt = String(payload?.lastUpdatedAt ?? payload?.generatedAt ?? payload?.spotter?.scrapedAt ?? "");
   applySavedFilters();
   syncFormValuesFromState();
   if (parisInvaders.length > 200) {
