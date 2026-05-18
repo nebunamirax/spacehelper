@@ -123,6 +123,14 @@ Dans le fichier standalone, la base intégrée reste celle embarquée au moment 
 
 ## Générer Le JSON
 
+Commande complète pour mettre à jour la base et régénérer le fichier standalone + GitHub Pages :
+
+```bash
+./scripts/update-database.sh
+```
+
+Cette commande exécute toute la chaîne : Invamap, enrichissement Invader Spotter, `data/invaders.js`, `dist/space-helper-standalone.html` et `docs/index.html`.
+
 Méthode fiable depuis ce dossier :
 
 ```bash
