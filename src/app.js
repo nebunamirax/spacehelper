@@ -153,6 +153,7 @@ const state = {
   baseNeedsSave: false,
   preserveMapViewport: false,
   openSelectedPopup: false,
+  pendingListFocus: null,
   renderFrame: null,
   recentInventoryChange: null,
   userLocation: null,
@@ -944,11 +945,29 @@ function previewListInventoryStatus(card, button, status) {
   card.querySelector(".city-score small").textContent = label;
 }
 
+function adjacentInvaderId(invaders, currentId) {
+  const currentIndex = invaders.findIndex((invader) => invader.id === currentId);
+  if (currentIndex < 0) return null;
+  return invaders[currentIndex + 1]?.id || invaders[currentIndex - 1]?.id || null;
+}
+
+function focusPendingListCard() {
+  const pendingId = state.pendingListFocus;
+  if (!pendingId) return;
+  state.pendingListFocus = null;
+  requestAnimationFrame(() => {
+    const card = [...els.cityList.querySelectorAll(".city-card")]
+      .find((item) => item.dataset.invaderId === pendingId);
+    card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+}
+
 function renderList(visibleInvaders) {
   els.cityList.replaceChildren();
 
   if (!visibleInvaders.length) {
     els.cityList.innerHTML = `<p class="empty">${state.cityFilter ? "Aucun invader ne correspond aux filtres." : "Choisis une ville dans le menu ou sur la carte."}</p>`;
+    state.pendingListFocus = null;
     return;
   }
 
@@ -959,6 +978,7 @@ function renderList(visibleInvaders) {
     const thumb = card.querySelector(".city-thumb");
     const thumbImage = thumb.querySelector("img");
     const displayStatus = personalStatus === "untracked" ? "todo" : personalStatus;
+    card.dataset.invaderId = invader.id;
     card.classList.toggle("is-selected", invader.id === state.selectedCode);
     card.classList.toggle("is-marking", state.recentInventoryChange?.id === invader.id);
     card.classList.add(`inventory-${displayStatus}`);
@@ -983,13 +1003,16 @@ function renderList(visibleInvaders) {
       event.preventDefault();
       event.stopPropagation();
       const nextStatus = nextInventoryStatus(personalStatus);
-      state.selectedCode = invader.id;
+      const nextSelection = adjacentInvaderId(visibleInvaders, invader.id);
+      state.selectedCode = nextSelection || invader.id;
+      state.pendingListFocus = nextSelection;
       previewListInventoryStatus(card, flashToggle, nextStatus);
       setInventoryStatus(invader.id, nextStatus);
     });
     card.addEventListener("click", () => selectCity(invader.id));
     els.cityList.append(card);
   });
+  focusPendingListCard();
 }
 
 function setSelectOptions(select, options, selectedValue, fallbackValue = "all") {
