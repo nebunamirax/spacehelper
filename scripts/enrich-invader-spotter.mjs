@@ -4,6 +4,7 @@ const BASE_URL = "https://www.invader-spotter.art";
 const CITIES_URL = `${BASE_URL}/villes.php`;
 const LISTING_URL = `${BASE_URL}/listing.php`;
 const DATA_FILE = new URL("../data/invaders.json", import.meta.url);
+const REQUEST_TIMEOUT_MS = 30_000;
 
 const monthMap = new Map([
   ["janvier", "01"],
@@ -61,7 +62,8 @@ async function fetchText(url, options = {}) {
   if (options.method === "POST") headers["content-type"] = "application/x-www-form-urlencoded";
   const response = await fetch(url, {
     ...options,
-    headers
+    headers,
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
   });
   if (!response.ok) throw new Error(`HTTP ${response.status} while fetching ${url}`);
   return response.text();
@@ -230,7 +232,13 @@ if (!cities.length) throw new Error(`Aucune ville trouvée${selectedCity ? ` pou
 
 const spotterInvaders = [];
 for (const city of cities) {
-  const invaders = await fetchCityInvaders(city);
+  let invaders;
+  try {
+    invaders = await fetchCityInvaders(city);
+  } catch (error) {
+    console.warn(`${city.code}: skipped (${error.message})`);
+    continue;
+  }
   spotterInvaders.push(...invaders);
   console.log(`${city.code}: ${invaders.length}/${city.totalCount}`);
 }

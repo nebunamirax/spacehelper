@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-18T19:09:57.487Z",
+  "generatedAt": "2026-06-06T10:30:16.869Z",
   "sourceUrl": "https://invamap.si/map.php",
-  "count": 4328,
+  "count": 4351,
   "note": "Coordinates are the public coordinates used by Invamap's map page.",
   "invaders": [
     {
@@ -157,8 +157,8 @@
       "lat": 43.5270610314,
       "lon": 5.4465184675,
       "points": 20,
-      "status": "destroyed",
-      "originalStatus": "hidden",
+      "status": "ok",
+      "originalStatus": "OK",
       "installedAt": "1999-06-26",
       "imageUrl": "https://www.invader-spotter.art/grosplan/AIX/AIX_07-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/aix_07/",
@@ -166,10 +166,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#AIX_07",
-        "statusLabel": "Non visible",
+        "statusLabel": "OK",
         "installedAtLabel": "26/06/1999",
-        "lastCheckedAt": "2026-04",
-        "lastCheckedLabel": "avril 2026 (report)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026 (FlashInvaders)"
       }
     },
     {
@@ -2677,8 +2677,8 @@
       "lat": 43.3832257945,
       "lon": -1.6635102302,
       "points": 30,
-      "status": "destroyed",
-      "originalStatus": "destroyed",
+      "status": "ok",
+      "originalStatus": "OK",
       "installedAt": "2024-11-09",
       "imageUrl": "https://www.invader-spotter.art/grosplan/BAB/BAB_13-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/bab_13/",
@@ -2686,10 +2686,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#BAB_13",
-        "statusLabel": "Détruit !",
+        "statusLabel": "OK",
         "installedAtLabel": "09/11/2024",
-        "lastCheckedAt": "2025-02",
-        "lastCheckedLabel": "février 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -8447,8 +8447,8 @@
       "lat": 42.6954959659,
       "lon": 9.4480686335,
       "points": 10,
-      "status": "ok",
-      "originalStatus": "OK",
+      "status": "destroyed",
+      "originalStatus": "destroyed",
       "installedAt": "2005-09-22",
       "imageUrl": "https://www.invader-spotter.art/grosplan/BTA/BTA_11-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/bta_11/",
@@ -8456,10 +8456,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#BTA_11",
-        "statusLabel": "OK",
+        "statusLabel": "Détruit !",
         "installedAtLabel": "22/09/2005",
-        "lastCheckedAt": "2020-09",
-        "lastCheckedLabel": "septembre 2020 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -10114,8 +10114,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#CAPF_04",
         "statusLabel": "Détruit !",
         "installedAtLabel": "30/12/2017",
-        "lastCheckedAt": "2025-04",
-        "lastCheckedLabel": "avril 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -13688,10 +13688,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#DJBA_39",
-        "statusLabel": "Un peu dégradé",
+        "statusLabel": "Dégradé",
         "installedAtLabel": "18/11/2019",
-        "lastCheckedAt": "2025-03",
-        "lastCheckedLabel": "mars 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -14424,7 +14424,7 @@
       "lon": 127.35016917715525,
       "points": 0,
       "status": "check",
-      "originalStatus": "unknown",
+      "originalStatus": "",
       "installedAt": "",
       "imageUrl": "https://invamap.si/assets/image/SI/DJN_12_m1.jpg",
       "instagramUrl": "https://www.instagram.com/explore/tags/djn_12/",
@@ -16382,7 +16382,7 @@
         "statusLabel": "OK",
         "installedAtLabel": "18/09/2000",
         "lastCheckedAt": "2026-04",
-        "lastCheckedLabel": "avril 2026 (Instagram)"
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -16550,7 +16550,7 @@
         "statusLabel": "OK",
         "installedAtLabel": "19/09/2000",
         "lastCheckedAt": "2026-04",
-        "lastCheckedLabel": "avril 2026 (report)"
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -16573,8 +16573,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#GNV_09",
         "statusLabel": "OK",
         "installedAtLabel": "20/09/2000",
-        "lastCheckedAt": "2024-07",
-        "lastCheckedLabel": "juillet 2024 (report)"
+        "lastCheckedAt": "2026-04",
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -19429,8 +19429,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#HK_34",
         "statusLabel": "Dégradé",
         "installedAtLabel": "19/01/2014",
-        "lastCheckedAt": "2025-09",
-        "lastCheckedLabel": "septembre 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (FlashInvaders)"
       }
     },
     {
@@ -20882,8 +20882,8 @@
       "lat": 22.2856157724,
       "lon": 114.1491071567,
       "points": 30,
-      "status": "ok",
-      "originalStatus": "OK",
+      "status": "destroyed",
+      "originalStatus": "destroyed",
       "installedAt": "2015-05-08",
       "imageUrl": "https://www.invader-spotter.art/grosplan/HK/HK_095-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/hk_95/",
@@ -20891,10 +20891,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#HK_95",
-        "statusLabel": "OK",
+        "statusLabel": "Détruit !",
         "installedAtLabel": "08/05/2015",
-        "lastCheckedAt": "2025-11",
-        "lastCheckedLabel": "novembre 2025 (Instagram)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -26100,8 +26100,8 @@
       "lat": 34.1002252988,
       "lon": -118.289933062,
       "points": 10,
-      "status": "destroyed",
-      "originalStatus": "destroyed",
+      "status": "ok",
+      "originalStatus": "OK",
       "installedAt": "2005-06-04",
       "imageUrl": "https://www.invader-spotter.art/grosplan/LA/LA_109-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/la_109/",
@@ -26109,10 +26109,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#LA_109",
-        "statusLabel": "Détruit !",
+        "statusLabel": "OK",
         "installedAtLabel": "04/06/2005",
-        "lastCheckedAt": "2026-03",
-        "lastCheckedLabel": "mars 2026 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -30270,7 +30270,7 @@
       "lon": -0.1992281871,
       "points": 30,
       "status": "ok",
-      "originalStatus": "OK",
+      "originalStatus": "damaged",
       "installedAt": "2003-05-03",
       "imageUrl": "https://www.invader-spotter.art/grosplan/LDN/LDN_052-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/ldn_52/",
@@ -30280,8 +30280,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#LDN_52",
         "statusLabel": "OK",
         "installedAtLabel": "03/05/2003",
-        "lastCheckedAt": "2025-05",
-        "lastCheckedLabel": "mai 2025"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -44981,7 +44981,7 @@
       "lat": 48.1392883421,
       "lon": 11.5559521039,
       "points": 30,
-      "status": "ok",
+      "status": "check",
       "originalStatus": "OK",
       "installedAt": "2023-04-10",
       "imageUrl": "https://www.invader-spotter.art/grosplan/MUN/MUN_15-grosplan.png",
@@ -44990,10 +44990,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#MUN_15",
-        "statusLabel": "OK",
+        "statusLabel": "Un peu dégradé",
         "installedAtLabel": "10/04/2023",
-        "lastCheckedAt": "2023-04",
-        "lastCheckedLabel": "avril 2023 (report)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026 (report)"
       }
     },
     {
@@ -52353,8 +52353,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_64",
         "statusLabel": "Un peu dégradé",
         "installedAtLabel": "11/06/1998",
-        "lastCheckedAt": "2024-10",
-        "lastCheckedLabel": "octobre 2024"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -54801,8 +54801,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_166",
         "statusLabel": "OK",
         "installedAtLabel": "28/02/1999",
-        "lastCheckedAt": "2025-06",
-        "lastCheckedLabel": "juin 2025 (report)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
       }
     },
     {
@@ -55809,8 +55809,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_208",
         "statusLabel": "Détruit !",
         "installedAtLabel": "31/07/1999",
-        "lastCheckedAt": "2024-03",
-        "lastCheckedLabel": "mars 2024"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -56217,8 +56217,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_225",
         "statusLabel": "Dégradé",
         "installedAtLabel": "24/10/1999",
-        "lastCheckedAt": "2023-09",
-        "lastCheckedLabel": "septembre 2023"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -56734,8 +56734,8 @@
       "lat": 48.8332878093,
       "lon": 2.2895666613,
       "points": 20,
-      "status": "ok",
-      "originalStatus": "OK",
+      "status": "check",
+      "originalStatus": "damaged",
       "installedAt": "1999-12-18",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_0247-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/pa_247/",
@@ -56743,10 +56743,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_247",
-        "statusLabel": "OK",
+        "statusLabel": "Dégradé",
         "installedAtLabel": "18/12/1999",
-        "lastCheckedAt": "2017-03",
-        "lastCheckedLabel": "mars 2017 (spott)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -56937,8 +56937,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_255",
         "statusLabel": "Un peu dégradé",
         "installedAtLabel": "31/01/2000",
-        "lastCheckedAt": "2026-02",
-        "lastCheckedLabel": "février 2026 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -57201,8 +57201,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_266",
         "statusLabel": "Un peu dégradé",
         "installedAtLabel": "05/02/2000",
-        "lastCheckedAt": "2024-09",
-        "lastCheckedLabel": "septembre 2024 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -58425,8 +58425,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_317",
         "statusLabel": "Détruit !",
         "installedAtLabel": "06/08/2000",
-        "lastCheckedAt": "2024-08",
-        "lastCheckedLabel": "août 2024 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -63430,7 +63430,7 @@
       "lat": 48.8605427516,
       "lon": 2.4869911914,
       "points": 30,
-      "status": "ok",
+      "status": "destroyed",
       "originalStatus": "OK",
       "installedAt": "2003-08-17",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_0526-grosplan.png",
@@ -63439,10 +63439,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_526",
-        "statusLabel": "OK",
+        "statusLabel": "Détruit !",
         "installedAtLabel": "17/08/2003",
-        "lastCheckedAt": "2017-09",
-        "lastCheckedLabel": "septembre 2017 (spott)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026 (report)"
       }
     },
     {
@@ -66081,8 +66081,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_636",
         "statusLabel": "Dégradé",
         "installedAtLabel": "25/12/2005",
-        "lastCheckedAt": "2025-04",
-        "lastCheckedLabel": "avril 2025"
+        "lastCheckedAt": "2026-04",
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -68553,8 +68553,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_739",
         "statusLabel": "OK",
         "installedAtLabel": "08/07/2007",
-        "lastCheckedAt": "2024-11",
-        "lastCheckedLabel": "novembre 2024 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -69094,8 +69094,8 @@
       "lat": 48.8484501472,
       "lon": 2.260333374,
       "points": 10,
-      "status": "check",
-      "originalStatus": "damaged",
+      "status": "destroyed",
+      "originalStatus": "destroyed",
       "installedAt": "2008-02-08",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_0762-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/pa_762/",
@@ -69103,10 +69103,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_762",
-        "statusLabel": "Dégradé",
+        "statusLabel": "Détruit !",
         "installedAtLabel": "08/02/2008",
-        "lastCheckedAt": "2025-04",
-        "lastCheckedLabel": "avril 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -71217,8 +71217,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_850",
         "statusLabel": "Détruit !",
         "installedAtLabel": "28/04/2010",
-        "lastCheckedAt": "2025-08",
-        "lastCheckedLabel": "août 2025 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -73582,7 +73582,7 @@
       "lat": 48.844909104,
       "lon": 2.2976517177,
       "points": 50,
-      "status": "ok",
+      "status": "check",
       "originalStatus": "OK",
       "installedAt": "2011-04-03",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_0949-grosplan.png",
@@ -73591,10 +73591,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_949",
-        "statusLabel": "OK",
+        "statusLabel": "Un peu dégradé",
         "installedAtLabel": "03/04/2011",
-        "lastCheckedAt": "2019-10",
-        "lastCheckedLabel": "octobre 2019 (report)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
       }
     },
     {
@@ -73655,7 +73655,7 @@
       "lon": 2.3247567574,
       "points": 20,
       "status": "ok",
-      "originalStatus": "OK",
+      "originalStatus": "hidden",
       "installedAt": "2011-04-03",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_0952-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/pa_952/",
@@ -75705,8 +75705,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1037",
         "statusLabel": "Dégradé",
         "installedAtLabel": "22/07/2012",
-        "lastCheckedAt": "2025-09",
-        "lastCheckedLabel": "septembre 2025"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -77191,10 +77191,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1099",
-        "statusLabel": "Dégradé",
+        "statusLabel": "Très dégradé",
         "installedAtLabel": "15/07/2014",
-        "lastCheckedAt": "2026-04",
-        "lastCheckedLabel": "avril 2026"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -80457,8 +80457,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1235",
         "statusLabel": "OK",
         "installedAtLabel": "12/09/2016",
-        "lastCheckedAt": "2023-07",
-        "lastCheckedLabel": "juillet 2023 (report)"
+        "lastCheckedAt": "2026-04",
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -83673,8 +83673,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1369",
         "statusLabel": "Dégradé",
         "installedAtLabel": "26/09/2018",
-        "lastCheckedAt": "2023-05",
-        "lastCheckedLabel": "mai 2023 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -84057,8 +84057,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1385",
         "statusLabel": "OK",
         "installedAtLabel": "12/02/2019",
-        "lastCheckedAt": "2019-03",
-        "lastCheckedLabel": "mars 2019 (spott)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
       }
     },
     {
@@ -87297,8 +87297,8 @@
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1520",
         "statusLabel": "OK",
         "installedAtLabel": "04/09/2024",
-        "lastCheckedAt": "2024-09",
-        "lastCheckedLabel": "septembre 2024 (report)"
+        "lastCheckedAt": "2026-04",
+        "lastCheckedLabel": "avril 2026"
       }
     },
     {
@@ -87358,8 +87358,8 @@
       "lat": 48.8664826713,
       "lon": 2.3373830353,
       "points": 20,
-      "status": "destroyed",
-      "originalStatus": "hidden",
+      "status": "ok",
+      "originalStatus": "OK",
       "installedAt": "2024-10-01",
       "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1523-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/pa_1523/",
@@ -87367,10 +87367,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1523",
-        "statusLabel": "Non visible",
+        "statusLabel": "OK",
         "installedAtLabel": "01/10/2024",
-        "lastCheckedAt": "2026-03",
-        "lastCheckedLabel": "mars 2026 (report)"
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026 (report)"
       }
     },
     {
@@ -88499,6 +88499,558 @@
         "installedAtLabel": "06/05/2026",
         "lastCheckedAt": "2026-05",
         "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1571",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION FOLIE R4",
+      "address": "",
+      "lat": 48.895226,
+      "lon": 2.391089,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1571-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1571/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1571",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1571",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1572",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION GEODE",
+      "address": "",
+      "lat": 48.894941,
+      "lon": 2.390029,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1572-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1572/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1572",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1572",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1573",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION ARGONAUTE",
+      "address": "",
+      "lat": 48.894648,
+      "lon": 2.389372,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1573-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1573/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1573",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1573",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1574",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1574",
+      "address": "",
+      "lat": 48.894908,
+      "lon": 2.389093,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1574-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1574/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1574",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1574",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1575",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1575",
+      "address": "",
+      "lat": 48.8944691,
+      "lon": 2.3881232,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1575-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1575/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1575",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1575",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1576",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1576",
+      "address": "",
+      "lat": 48.89245,
+      "lon": 2.38723,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1576-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1576/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1576",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1576",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1577",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1577",
+      "address": "",
+      "lat": 48.894192,
+      "lon": 2.386334,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-20",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1577-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1577/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1577",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1577",
+        "statusLabel": "OK",
+        "installedAtLabel": "20/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1578",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION FOLIE N5",
+      "address": "",
+      "lat": 48.893122,
+      "lon": 2.389394,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1578-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1578/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1578",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1578",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
+      }
+    },
+    {
+      "id": "PA_1579",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION FOLIE P5",
+      "address": "",
+      "lat": 48.893705,
+      "lon": 2.390609,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1579-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1579/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1579",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1579",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1580",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION TRABENDO",
+      "address": "",
+      "lat": 48.892674,
+      "lon": 2.393878,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1580-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1580/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1580",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1580",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1581",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION PROMENADE CINEMATIQUE",
+      "address": "",
+      "lat": 48.892706,
+      "lon": 2.392891,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1581-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1581/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1581",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1581",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1582",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION 211",
+      "address": "",
+      "lat": 48.892125,
+      "lon": 2.387492,
+      "points": 50,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1582-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1582/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1582",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1582",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1583",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1583",
+      "address": "",
+      "lat": 48.891943,
+      "lon": 2.389153,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1583-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1583/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1583",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1583",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1584",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1584",
+      "address": "",
+      "lat": 48.895713,
+      "lon": 2.393569,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1584-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1584/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1584",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1584",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1585",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1585",
+      "address": "",
+      "lat": 48.889742,
+      "lon": 2.390405,
+      "points": 50,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1585-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1585/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1585",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1585",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1586",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION LITTLE VILLETTE",
+      "address": "",
+      "lat": 48.890745,
+      "lon": 2.389829,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1586-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1586/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1586",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1586",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1587",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1587",
+      "address": "",
+      "lat": 48.890659,
+      "lon": 2.392156,
+      "points": 20,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1587-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1587/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1587",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1587",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1588",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION LA VILLETTE",
+      "address": "",
+      "lat": 48.890381,
+      "lon": 2.392474,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1588-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1588/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1588",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1588",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1589",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "INVASION BAMBOUS",
+      "address": "",
+      "lat": 48.892473,
+      "lon": 2.391616,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-21",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1589-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1589/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1589",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1589",
+        "statusLabel": "OK",
+        "installedAtLabel": "21/05/2026",
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026"
+      }
+    },
+    {
+      "id": "PA_1590",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "BEYOND THE STREETS",
+      "address": "",
+      "lat": 48.890913523754236,
+      "lon": 2.3908828249928984,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-23",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1590-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1590/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1590",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1590",
+        "statusLabel": "OK",
+        "installedAtLabel": "23/05/2026",
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
+      }
+    },
+    {
+      "id": "PA_1591",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1591",
+      "address": "",
+      "lat": 48.89471511719685,
+      "lon": 2.388166630182342,
+      "points": 50,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-28",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1591-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1591/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1591",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1591",
+        "statusLabel": "OK",
+        "installedAtLabel": "28/05/2026",
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
+      }
+    },
+    {
+      "id": "PA_1592",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1592",
+      "address": "",
+      "lat": 48.889142,
+      "lon": 2.388339,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-28",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1592-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1592/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1592",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1592",
+        "statusLabel": "OK",
+        "installedAtLabel": "28/05/2026",
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
+      }
+    },
+    {
+      "id": "PA_1593",
+      "cityCode": "PA",
+      "city": "Paris",
+      "title": "PA_1593",
+      "address": "",
+      "lat": 48.886589,
+      "lon": 2.39388,
+      "points": 30,
+      "status": "ok",
+      "originalStatus": "OK",
+      "installedAt": "2026-05-28",
+      "imageUrl": "https://www.invader-spotter.art/grosplan/PA/PA_1593-grosplan.png",
+      "instagramUrl": "https://www.instagram.com/explore/tags/pa_1593/",
+      "sourceUrl": "https://invamap.si/invaders/PA_1593",
+      "note": "Imported from Invamap public map dataset.",
+      "spotter": {
+        "sourceUrl": "https://www.invader-spotter.art/listing.php#PA_1593",
+        "statusLabel": "OK",
+        "installedAtLabel": "28/05/2026",
+        "lastCheckedAt": "2026-06",
+        "lastCheckedLabel": "juin 2026"
       }
     },
     {
@@ -91990,8 +92542,8 @@
       "lat": 34.0186214392,
       "lon": -6.8310118553,
       "points": 40,
-      "status": "ok",
-      "originalStatus": "OK",
+      "status": "check",
+      "originalStatus": "damaged",
       "installedAt": "2017-03-16",
       "imageUrl": "https://www.invader-spotter.art/grosplan/RBA/RBA_09-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/rba_09/",
@@ -91999,10 +92551,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#RBA_09",
-        "statusLabel": "OK",
+        "statusLabel": "Un peu dégradé",
         "installedAtLabel": "16/03/2017",
-        "lastCheckedAt": "2018-12",
-        "lastCheckedLabel": "décembre 2018 (spott)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (FlashInvaders)"
       }
     },
     {
@@ -94727,7 +95279,7 @@
       "lon": 4.465478533,
       "points": 10,
       "status": "check",
-      "originalStatus": "OK",
+      "originalStatus": "damaged",
       "installedAt": "2001-11-01",
       "imageUrl": "https://www.invader-spotter.art/grosplan/RTD/RTD_07-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/rtd_07/",
@@ -102079,8 +102631,8 @@
       "lat": 48.1978101824,
       "lon": 16.354123641,
       "points": 20,
-      "status": "ok",
-      "originalStatus": "OK",
+      "status": "destroyed",
+      "originalStatus": "destroyed",
       "installedAt": "2006-06-06",
       "imageUrl": "https://www.invader-spotter.art/grosplan/WN/WN_01-grosplan.png",
       "instagramUrl": "https://www.instagram.com/explore/tags/wn_01/",
@@ -102088,10 +102640,10 @@
       "note": "Imported from Invamap public map dataset.",
       "spotter": {
         "sourceUrl": "https://www.invader-spotter.art/listing.php#WN_01",
-        "statusLabel": "OK",
+        "statusLabel": "Détruit !",
         "installedAtLabel": "06/06/2006",
-        "lastCheckedAt": "2026-04",
-        "lastCheckedLabel": "avril 2026 (report)"
+        "lastCheckedAt": "2026-05",
+        "lastCheckedLabel": "mai 2026 (report)"
       }
     },
     {
@@ -103415,7 +103967,7 @@
       }
     }
   ],
-  "lastUpdatedAt": "2026-05-18T19:20:08.877Z",
+  "lastUpdatedAt": "2026-06-06T10:40:40.332Z",
   "sources": [
     {
       "name": "Invamap",
@@ -103429,11 +103981,11 @@
     }
   ],
   "spotter": {
-    "scrapedAt": "2026-05-18T19:20:08.878Z",
+    "scrapedAt": "2026-06-06T10:40:40.332Z",
     "sourceUrl": "https://www.invader-spotter.art/villes.php",
     "cities": 88,
-    "count": 4309,
-    "matched": 4262,
+    "count": 4332,
+    "matched": 4285,
     "unmapped": 47
   },
   "unmappedInvaders": [

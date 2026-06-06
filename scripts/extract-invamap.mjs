@@ -96,7 +96,7 @@ function normalizeInvader(item, pointsMap) {
   };
 }
 
-const html = execFileSync("curl", ["-s", MAP_URL], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
+const html = execFileSync("curl", ["-s", "--max-time", "30", MAP_URL], { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
 const keyHex = extractConst(html, "ENC_KEY_HEX");
 const rawInvaders = await decryptAesGcm(extractConst(html, "LOCAL_DATA_ENC"), keyHex);
 const pointsMap = await decryptAesGcm(extractConst(html, "LOCAL_POINTS_ENC"), keyHex);
